@@ -1,0 +1,2 @@
+[console_scripts]
+wiitools-run = wiitools.__main__:main

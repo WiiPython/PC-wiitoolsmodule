@@ -1,0 +1,2120 @@
+============================================================
+test_all.py  Wii CPython module test
+sys.version : 3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]
+sys.prefix  : /home/lew/.python-venv
+FAIL_LOG    : fail.log
+============================================================
+
+[36m=== array ===[0m
+[32m[OK  ][0m import array
+[32m[OK  ][0m array.typecodes is str
+[32m[OK  ][0m array.typecodes non-empty
+[32m[OK  ][0m array.ArrayType exists
+[32m[OK  ][0m array('b').itemsize==1
+[32m[OK  ][0m array('B').itemsize==1
+[32m[OK  ][0m array('h').itemsize==2
+[32m[OK  ][0m array('H').itemsize==2
+[32m[OK  ][0m array('i').itemsize==4
+[32m[OK  ][0m array('I').itemsize==4
+[31m[FAIL][0m array('l').itemsize==4: expected 4 got 8
+[31m[FAIL][0m array('L').itemsize==4: expected 4 got 8
+[32m[OK  ][0m array('q').itemsize==8
+[32m[OK  ][0m array('Q').itemsize==8
+[32m[OK  ][0m array('f').itemsize==4
+[32m[OK  ][0m array('d').itemsize==8
+[32m[OK  ][0m array b round-trip
+[32m[OK  ][0m array B round-trip
+[32m[OK  ][0m array h round-trip
+[32m[OK  ][0m array H round-trip
+[32m[OK  ][0m array i round-trip
+[32m[OK  ][0m array I round-trip
+[32m[OK  ][0m array q round-trip
+[32m[OK  ][0m array Q round-trip
+[32m[OK  ][0m array f precision
+[32m[OK  ][0m array d precision
+[32m[OK  ][0m array.append
+[32m[OK  ][0m array.insert(0,0)
+[32m[OK  ][0m array.remove(0)
+[32m[OK  ][0m array.pop()
+[32m[OK  ][0m array.pop(0)
+[32m[OK  ][0m array.extend list
+[32m[OK  ][0m array.extend array
+[32m[OK  ][0m array.reverse
+[32m[OK  ][0m array.count(2)==3
+[32m[OK  ][0m array.count(9)==0
+[32m[OK  ][0m array.index(3)==3
+[32m[OK  ][0m array.index missing raises ValueError
+[32m[OK  ][0m array.tobytes length
+[32m[OK  ][0m array.frombytes round-trip
+[32m[OK  ][0m array.fromlist
+[32m[OK  ][0m array.buffer_info 2-tuple
+[32m[OK  ][0m array.buffer_info[1]==4
+[32m[OK  ][0m array[2]==2
+[32m[OK  ][0m array[-1]==4
+[32m[OK  ][0m array[1:3]
+[32m[OK  ][0m array[::2]
+[32m[OK  ][0m array item assign
+[32m[OK  ][0m array OOB raises IndexError
+[32m[OK  ][0m array ==
+[32m[OK  ][0m array !=
+[32m[OK  ][0m array <
+[32m[OK  ][0m array.typecode attr
+
+[36m=== binascii ===[0m
+[32m[OK  ][0m import binascii
+[32m[OK  ][0m binascii has hexlify
+[32m[OK  ][0m binascii has unhexlify
+[32m[OK  ][0m binascii has b2a_base64
+[32m[OK  ][0m binascii has a2b_base64
+[32m[OK  ][0m binascii has b2a_hex
+[32m[OK  ][0m binascii has a2b_hex
+[32m[OK  ][0m binascii has crc32
+[32m[OK  ][0m binascii has crc_hqx
+[32m[OK  ][0m binascii has a2b_uu
+[32m[OK  ][0m binascii has b2a_uu
+[32m[OK  ][0m binascii has a2b_qp
+[32m[OK  ][0m binascii has b2a_qp
+[32m[OK  ][0m binascii has Error
+[32m[OK  ][0m hexlify b'hello'
+[32m[OK  ][0m hexlify empty
+[32m[OK  ][0m hexlify sep
+[32m[OK  ][0m unhexlify round-trip
+[32m[OK  ][0m unhexlify known
+[32m[OK  ][0m unhexlify uppercase
+[32m[OK  ][0m b2a_hex alias
+[32m[OK  ][0m a2b_hex alias
+[32m[OK  ][0m unhexlify odd-length raises Error
+[32m[OK  ][0m unhexlify bad char raises Error
+[32m[OK  ][0m b2a_base64 strip
+[32m[OK  ][0m b2a_base64 empty
+[32m[OK  ][0m b2a_base64 newline
+[32m[OK  ][0m a2b_base64 decode
+[32m[OK  ][0m a2b_base64 empty
+[32m[OK  ][0m a2b_base64 whitespace
+[32m[OK  ][0m base64 round-trip b''
+[32m[OK  ][0m base64 round-trip b'a'
+[32m[OK  ][0m base64 round-trip b'ab'
+[32m[OK  ][0m base64 round-trip b'abc'
+[32m[OK  ][0m base64 round-trip b'abcd'
+[32m[OK  ][0m base64 round-trip b'\x00\xff\x80'
+[32m[OK  ][0m crc32 b'hello'
+[32m[OK  ][0m crc32 empty==0
+[32m[OK  ][0m crc32 cumulative
+[32m[OK  ][0m crc32 returns int
+[32m[OK  ][0m crc_hqx returns int
+[32m[OK  ][0m crc_hqx empty crc=0
+[32m[OK  ][0m crc_hqx 16-bit range
+[32m[OK  ][0m crc_hqx reproducible
+[32m[OK  ][0m uu round-trip
+[32m[OK  ][0m uu empty
+[32m[OK  ][0m uu round-trip b'a'
+[32m[OK  ][0m uu round-trip b'ab'
+[32m[OK  ][0m uu round-trip b'abc'
+[32m[OK  ][0m uu round-trip b'Wii CPython'
+[32m[OK  ][0m qp returns bytes
+[32m[OK  ][0m a2b_qp decodes =3D
+[32m[OK  ][0m a2b_qp soft linebreak
+[32m[OK  ][0m qp round-trip plain
+[32m[OK  ][0m binascii.Error is Exc
+
+[36m=== cmath ===[0m
+[32m[OK  ][0m import cmath
+[32m[OK  ][0m cmath.pi
+[32m[OK  ][0m cmath.e
+[32m[OK  ][0m cmath.tau
+[32m[OK  ][0m cmath.inf
+[32m[OK  ][0m cmath.nan
+[32m[OK  ][0m cmath.infj
+[32m[OK  ][0m cmath.nanj
+[32m[OK  ][0m cmath.phase(1+0j)==0
+[32m[OK  ][0m cmath.phase(-1)==pi
+[32m[OK  ][0m cmath.phase(1j)==pi/2
+[32m[OK  ][0m cmath.polar r
+[32m[OK  ][0m cmath.polar phi
+[32m[OK  ][0m cmath.rect r-t
+[32m[OK  ][0m cmath.exp(0)==1
+[32m[OK  ][0m cmath.exp(i*pi)+1~0
+[32m[OK  ][0m cmath.log(1)==0
+[32m[OK  ][0m cmath.log(e)==1
+[32m[OK  ][0m cmath.log10(100)==2
+[32m[OK  ][0m cmath.sqrt(-1)==1j
+[32m[OK  ][0m cmath.sqrt(4)==2
+[32m[OK  ][0m cmath.sin(0)==0
+[32m[OK  ][0m cmath.cos(0)==1
+[32m[OK  ][0m cmath.tan(0)==0
+[32m[OK  ][0m cmath.asin(0)==0
+[32m[OK  ][0m cmath.acos(1)~0
+[32m[OK  ][0m cmath.atan(0)==0
+[32m[OK  ][0m cmath.sinh(0)==0
+[32m[OK  ][0m cmath.cosh(0)==1
+[32m[OK  ][0m cmath.tanh(0)==0
+[32m[OK  ][0m cmath.asinh(0)==0
+[32m[OK  ][0m cmath.acosh(1)~0
+[32m[OK  ][0m cmath.atanh(0)==0
+[32m[OK  ][0m cmath.isnan(nan+0j)
+[32m[OK  ][0m cmath.isnan(1+0j)
+[32m[OK  ][0m cmath.isinf(inf+0j)
+[32m[OK  ][0m cmath.isinf(1+0j)
+[32m[OK  ][0m cmath.isfinite(1+0j)
+[32m[OK  ][0m cmath.isfinite(nan+0j)
+[32m[OK  ][0m cmath.isclose same
+[32m[OK  ][0m cmath.isclose diff
+
+[36m=== errno ===[0m
+[32m[OK  ][0m import errno
+[32m[OK  ][0m errno.errorcode dict
+[32m[OK  ][0m errno.errorcode non-empty
+[32m[OK  ][0m errno.EPERM exists
+[32m[OK  ][0m errno.EPERM int
+[32m[OK  ][0m errno.ENOENT exists
+[32m[OK  ][0m errno.ENOENT int
+[32m[OK  ][0m errno.ESRCH exists
+[32m[OK  ][0m errno.ESRCH int
+[32m[OK  ][0m errno.EINTR exists
+[32m[OK  ][0m errno.EINTR int
+[32m[OK  ][0m errno.EIO exists
+[32m[OK  ][0m errno.EIO int
+[32m[OK  ][0m errno.ENOEXEC exists
+[32m[OK  ][0m errno.ENOEXEC int
+[32m[OK  ][0m errno.EBADF exists
+[32m[OK  ][0m errno.EBADF int
+[32m[OK  ][0m errno.ECHILD exists
+[32m[OK  ][0m errno.ECHILD int
+[32m[OK  ][0m errno.EAGAIN exists
+[32m[OK  ][0m errno.EAGAIN int
+[32m[OK  ][0m errno.ENOMEM exists
+[32m[OK  ][0m errno.ENOMEM int
+[32m[OK  ][0m errno.EACCES exists
+[32m[OK  ][0m errno.EACCES int
+[32m[OK  ][0m errno.EEXIST exists
+[32m[OK  ][0m errno.EEXIST int
+[32m[OK  ][0m errno.ENODEV exists
+[32m[OK  ][0m errno.ENODEV int
+[32m[OK  ][0m errno.EINVAL exists
+[32m[OK  ][0m errno.EINVAL int
+[32m[OK  ][0m errno.ENOSPC exists
+[32m[OK  ][0m errno.ENOSPC int
+[32m[OK  ][0m errno.EROFS exists
+[32m[OK  ][0m errno.EROFS int
+[32m[OK  ][0m errno.EPIPE exists
+[32m[OK  ][0m errno.EPIPE int
+[32m[OK  ][0m errno.ERANGE exists
+[32m[OK  ][0m errno.ERANGE int
+[32m[OK  ][0m errno.ENAMETOOLONG exists
+[32m[OK  ][0m errno.ENAMETOOLONG int
+[32m[OK  ][0m errno.ENOTEMPTY exists
+[32m[OK  ][0m errno.ENOTEMPTY int
+[32m[OK  ][0m errno.EWOULDBLOCK exists
+[32m[OK  ][0m errno.EWOULDBLOCK int
+[32m[OK  ][0m errno.EADDRINUSE exists
+[32m[OK  ][0m errno.EADDRINUSE int
+[32m[OK  ][0m errno.ECONNREFUSED exists
+[32m[OK  ][0m errno.ECONNREFUSED int
+[32m[OK  ][0m errno.ETIMEDOUT exists
+[32m[OK  ][0m errno.ETIMEDOUT int
+[32m[OK  ][0m errno.ECONNRESET exists
+[32m[OK  ][0m errno.ECONNRESET int
+[32m[OK  ][0m errno.ENOTCONN exists
+[32m[OK  ][0m errno.ENOTCONN int
+[32m[OK  ][0m errno.ENOTSOCK exists
+[32m[OK  ][0m errno.ENOTSOCK int
+[32m[OK  ][0m errno.EINPROGRESS exists
+[32m[OK  ][0m errno.EINPROGRESS int
+[32m[OK  ][0m errno.EALREADY exists
+[32m[OK  ][0m errno.EALREADY int
+[32m[OK  ][0m errno.errorcode[ENOENT]=='ENOENT'
+
+[36m=== gc ===[0m
+[32m[OK  ][0m import gc
+[32m[OK  ][0m gc.isenabled() bool
+[32m[OK  ][0m gc.disable isenabled=F
+[32m[OK  ][0m gc.enable isenabled=T
+[32m[OK  ][0m gc.collect() int
+[32m[OK  ][0m gc.collect(0) int
+[32m[OK  ][0m gc.get_count 3-tuple
+[32m[OK  ][0m gc.get_count ints
+[32m[OK  ][0m gc.get_threshold 3-tuple
+[32m[OK  ][0m gc.set_threshold r-t
+[32m[OK  ][0m gc.get_objects list
+[32m[OK  ][0m gc.is_tracked list
+[32m[OK  ][0m gc.is_tracked int
+[32m[OK  ][0m gc.is_finalized False
+[32m[OK  ][0m gc.freeze None
+[32m[OK  ][0m gc.get_freeze_count int
+[32m[OK  ][0m gc.unfreeze None
+[32m[OK  ][0m gc.get_freeze_count 0
+[32m[OK  ][0m gc.callbacks list
+[32m[OK  ][0m gc.DEBUG_LEAK int
+[32m[OK  ][0m gc.DEBUG_SAVEALL int
+
+[36m=== itertools ===[0m
+[32m[OK  ][0m import itertools
+[32m[OK  ][0m count(5,2) first3
+[32m[OK  ][0m cycle 5 items
+[32m[OK  ][0m repeat(7,3)
+[32m[OK  ][0m chain
+[32m[OK  ][0m chain.from_iterable
+[32m[OK  ][0m compress
+[32m[OK  ][0m dropwhile
+[32m[OK  ][0m takewhile
+[32m[OK  ][0m filterfalse
+[32m[OK  ][0m islice(range(10),2,7,2)
+[32m[OK  ][0m starmap
+[32m[OK  ][0m zip_longest fillvalue
+[32m[OK  ][0m product
+[32m[OK  ][0m permutations(3,2) count
+[32m[OK  ][0m combinations(4,2) count
+[32m[OK  ][0m combinations_wr(3,2)
+[32m[OK  ][0m accumulate sum
+[32m[OK  ][0m accumulate mul
+[32m[OK  ][0m groupby keys
+[32m[OK  ][0m groupby values
+[32m[OK  ][0m pairwise
+[32m[OK  ][0m batched(5,2)
+
+[36m=== marshal ===[0m
+[32m[OK  ][0m import marshal
+[32m[OK  ][0m marshal.version int
+[32m[OK  ][0m marshal.dumps bytes
+[32m[OK  ][0m marshal r-t None
+[32m[OK  ][0m marshal r-t True
+[32m[OK  ][0m marshal r-t False
+[32m[OK  ][0m marshal r-t 42
+[32m[OK  ][0m marshal r-t -1
+[32m[OK  ][0m marshal r-t 0
+[32m[OK  ][0m marshal r-t 3.14
+[32m[OK  ][0m marshal r-t -2.718
+[32m[OK  ][0m marshal r-t (1+2j)
+[32m[OK  ][0m marshal r-t 0j
+[32m[OK  ][0m marshal r-t b''
+[32m[OK  ][0m marshal r-t b'bytes'
+[32m[OK  ][0m marshal r-t b'\x00\xff'
+[32m[OK  ][0m marshal r-t ''
+[32m[OK  ][0m marshal r-t 'string'
+[32m[OK  ][0m marshal r-t 'unicode €'
+[32m[OK  ][0m marshal r-t []
+[32m[OK  ][0m marshal r-t [1, 2, 3]
+[32m[OK  ][0m marshal r-t [None, True, [1, 2]]
+[32m[OK  ][0m marshal r-t ()
+[32m[OK  ][0m marshal r-t (1, 2, 3)
+[32m[OK  ][0m marshal r-t {}
+[32m[OK  ][0m marshal r-t {'a': 1, 'b': [2, 3]}
+[32m[OK  ][0m marshal r-t set()
+[32m[OK  ][0m marshal r-t {1, 2, 3}
+[32m[OK  ][0m marshal r-t frozenset()
+[32m[OK  ][0m marshal r-t frozenset({1, 2})
+[32m[OK  ][0m marshal r-t 18446744073709551616
+[32m[OK  ][0m marshal r-t -18446744073709551616
+
+[36m=== math ===[0m
+[32m[OK  ][0m import math
+[32m[OK  ][0m math.pi
+[32m[OK  ][0m math.e
+[32m[OK  ][0m math.tau
+[32m[OK  ][0m math.inf
+[32m[OK  ][0m math.nan
+[32m[OK  ][0m isfinite(1.0)
+[32m[OK  ][0m isfinite(inf)
+[32m[OK  ][0m isinf(inf)
+[32m[OK  ][0m isinf(1.0)
+[32m[OK  ][0m isnan(nan)
+[32m[OK  ][0m isnan(1.0)
+[32m[OK  ][0m isclose(1,1)
+[32m[OK  ][0m isclose(1,2)
+[32m[OK  ][0m ceil(1.2)==2
+[32m[OK  ][0m ceil(-1.2)==-1
+[32m[OK  ][0m floor(1.9)==1
+[32m[OK  ][0m floor(-1.9)==-2
+[32m[OK  ][0m trunc(1.9)==1
+[32m[OK  ][0m trunc(-1.9)==-1
+[32m[OK  ][0m fabs(-3.5)==3.5
+[32m[OK  ][0m factorial(5)==120
+[32m[OK  ][0m factorial(0)==1
+[32m[OK  ][0m gcd(12,8)==4
+[32m[OK  ][0m gcd(0,5)==5
+[32m[OK  ][0m lcm(4,6)==12
+[32m[OK  ][0m isqrt(9)==3
+[32m[OK  ][0m isqrt(10)==3
+[32m[OK  ][0m comb(5,2)==10
+[32m[OK  ][0m perm(5,2)==20
+[32m[OK  ][0m sqrt(4)==2.0
+[32m[OK  ][0m sqrt(2) approx
+[32m[OK  ][0m pow(2,10)==1024
+[32m[OK  ][0m exp(0)==1
+[32m[OK  ][0m exp(1)==e
+[32m[OK  ][0m expm1(0)==0
+[32m[OK  ][0m log(1)==0
+[32m[OK  ][0m log(e)==1
+[32m[OK  ][0m log(8,2)==3
+[32m[OK  ][0m log1p(0)==0
+[32m[OK  ][0m log2(8)==3
+[32m[OK  ][0m log10(1000)==3
+[32m[OK  ][0m sin(0)==0
+[32m[OK  ][0m sin(pi/2)==1
+[32m[OK  ][0m cos(0)==1
+[32m[OK  ][0m cos(pi)==-1
+[32m[OK  ][0m tan(0)==0
+[32m[OK  ][0m asin(0)==0
+[32m[OK  ][0m acos(1)==0
+[32m[OK  ][0m atan(0)==0
+[32m[OK  ][0m atan2(1,1)==pi/4
+[32m[OK  ][0m degrees(pi)==180
+[32m[OK  ][0m radians(180)==pi
+[32m[OK  ][0m hypot(3,4)==5
+[32m[OK  ][0m dist([0,0],[3,4])
+[32m[OK  ][0m sinh(0)==0
+[32m[OK  ][0m cosh(0)==1
+[32m[OK  ][0m tanh(0)==0
+[32m[OK  ][0m asinh(0)==0
+[32m[OK  ][0m acosh(1)==0
+[32m[OK  ][0m atanh(0)==0
+[32m[OK  ][0m fsum([0.1]*10)~1
+[32m[OK  ][0m prod([1,2,3,4])
+[32m[OK  ][0m modf frac~0.7
+[32m[OK  ][0m modf int==3.0
+[32m[OK  ][0m frexp mantissa
+[32m[OK  ][0m frexp exp
+[32m[OK  ][0m ldexp(0.5,4)==8
+[32m[OK  ][0m copysign(1,-2)
+[32m[OK  ][0m fmod(10,3)==1
+[32m[OK  ][0m remainder(10,3)
+[32m[OK  ][0m erf(0)==0
+[32m[OK  ][0m erfc(0)==1
+[32m[OK  ][0m gamma(5)~24
+[32m[OK  ][0m lgamma(5)~log24
+[32m[OK  ][0m nextafter(1,2)>1
+[32m[OK  ][0m ulp(1.0)>0
+
+[36m=== posix ===[0m
+[32m[OK  ][0m import posix
+[32m[OK  ][0m posix.stat callable
+[32m[OK  ][0m posix.listdir callable
+[32m[OK  ][0m posix.getcwd callable
+[32m[OK  ][0m posix.getpid callable
+[32m[OK  ][0m posix.open callable
+[32m[OK  ][0m posix.close callable
+[32m[OK  ][0m posix.read callable
+[32m[OK  ][0m posix.write callable
+[32m[OK  ][0m posix.getcwd() str
+[31m[FAIL][0m posix.listdir('sd:/') list: FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+[32m[OK  ][0m posix.getpid() int
+[31m[FAIL][0m posix.stat('sd:/'): FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+
+[36m=== pyexpat ===[0m
+[32m[OK  ][0m import pyexpat
+[32m[OK  ][0m pyexpat.ParserCreate callable
+[32m[OK  ][0m pyexpat.version_info tuple
+[32m[OK  ][0m pyexpat.errors exists
+[32m[OK  ][0m pyexpat.XML_PARAM_ENTITY_PARSING_NEVER
+[32m[OK  ][0m pyexpat.XML_PARAM_ENTITY_PARSING_UNLESS_STANDALONE
+[32m[OK  ][0m pyexpat.XML_PARAM_ENTITY_PARSING_ALWAYS
+[32m[OK  ][0m pyexpat.Parse returns 1
+[32m[OK  ][0m pyexpat start root
+[32m[OK  ][0m pyexpat start child
+[32m[OK  ][0m pyexpat end child
+[32m[OK  ][0m pyexpat end root
+[32m[OK  ][0m pyexpat CharData
+[32m[OK  ][0m pyexpat attr key
+[32m[OK  ][0m pyexpat attr n
+[32m[OK  ][0m pyexpat bad XML raises ExpatError
+[32m[OK  ][0m pyexpat.ErrorCode
+[32m[OK  ][0m pyexpat.CurrentLineNumber
+[32m[OK  ][0m pyexpat.CurrentColumnNumber
+
+[36m=== select ===[0m
+[32m[OK  ][0m import select
+[32m[OK  ][0m select.select callable
+[32m[OK  ][0m select.poll() object
+[32m[OK  ][0m select.poll.register
+[32m[OK  ][0m select.poll.unregister
+[32m[OK  ][0m select.poll.poll
+[32m[OK  ][0m select.poll() empty == []
+[32m[OK  ][0m select.POLLIN int
+[32m[OK  ][0m select.POLLOUT int
+[32m[OK  ][0m select.POLLERR int
+[32m[OK  ][0m select.POLLHUP int
+[32m[OK  ][0m select.POLLNVAL int
+
+[36m=== time ===[0m
+[32m[OK  ][0m import time
+[32m[OK  ][0m time.time() float
+[32m[OK  ][0m time.monotonic() float
+[32m[OK  ][0m time.perf_counter() float
+[32m[OK  ][0m time.process_time() float
+[32m[OK  ][0m time.monotonic non-decreasing
+[32m[OK  ][0m time.sleep(0) None
+[32m[OK  ][0m gmtime(0).tm_year
+[32m[OK  ][0m gmtime(0).tm_mon
+[32m[OK  ][0m gmtime(0).tm_mday
+[32m[OK  ][0m gmtime(0).tm_hour
+[32m[OK  ][0m gmtime(0).tm_min
+[32m[OK  ][0m gmtime(0).tm_sec
+[32m[OK  ][0m gmtime(0).tm_wday
+[32m[OK  ][0m gmtime(0).tm_yday
+[32m[OK  ][0m mktime(localtime(t))~t
+[32m[OK  ][0m strftime epoch
+[32m[OK  ][0m strftime %H:%M:%S
+[32m[OK  ][0m strptime year
+[32m[OK  ][0m strptime mon
+[32m[OK  ][0m strptime mday
+[32m[OK  ][0m CLOCK_REALTIME int
+[32m[OK  ][0m CLOCK_MONOTONIC int
+[32m[OK  ][0m clock_gettime float
+[32m[OK  ][0m asctime str
+[32m[OK  ][0m ctime(0) str
+[32m[OK  ][0m timezone int
+[32m[OK  ][0m daylight int
+[32m[OK  ][0m tzname tuple
+
+[36m=== unicodedata ===[0m
+[32m[OK  ][0m import unicodedata
+[32m[OK  ][0m unidata_version str
+[32m[OK  ][0m unidata_version nonempty
+[32m[OK  ][0m lookup 'LATIN SMALL LETTER A'
+[32m[OK  ][0m name('A')
+[32m[OK  ][0m name(euro sign)
+[32m[OK  ][0m lookup bad name raises KeyError
+[32m[OK  ][0m category('A')=='Lu'
+[32m[OK  ][0m category('a')=='Ll'
+[32m[OK  ][0m category('1')=='Nd'
+[32m[OK  ][0m category(' ')=='Zs'
+[32m[OK  ][0m category('.')=='Po'
+[32m[OK  ][0m bidirectional('A')=='L'
+[32m[OK  ][0m bidirectional(arabic digit)
+[32m[OK  ][0m combining('A')==0
+[32m[OK  ][0m combining(grave accent)>0
+[32m[OK  ][0m east_asian_width('A')=='Na'
+[32m[OK  ][0m mirrored('A')==0
+[32m[OK  ][0m mirrored('(')==1
+[32m[OK  ][0m decimal('5')==5
+[32m[OK  ][0m digit('5')==5
+[32m[OK  ][0m numeric('5')==5.0
+[32m[OK  ][0m decimal('A') raises ValueError
+[32m[OK  ][0m digit('A') raises ValueError
+[32m[OK  ][0m numeric('x') raises ValueError
+[32m[OK  ][0m decomposition(e-acute)nonempty
+[32m[OK  ][0m decomposition('A')==''
+[32m[OK  ][0m normalize NFC round-trip
+[32m[OK  ][0m normalize NFD len==2
+[32m[OK  ][0m normalize NFC(NFD(e-acute))==e-acute
+[32m[OK  ][0m normalize NFKC
+[32m[OK  ][0m is_normalized NFC plain
+[32m[OK  ][0m is_normalized NFC e-acute
+
+[36m=== wiitools ===[0m
+[32m[OK  ][0m import wiitools
+[32m[OK  ][0m wiitools.__version__ str
+[32m[OK  ][0m wiitools.width int > 0
+[32m[OK  ][0m wiitools.height int > 0
+[32m[OK  ][0m wiitools.WPAD_BUTTON_A int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_B int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_1 int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_2 int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_HOME int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_PLUS int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_MINUS int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_UP int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_DOWN int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_LEFT int
+[32m[OK  ][0m wiitools.WPAD_BUTTON_RIGHT int
+[32m[OK  ][0m wiitools.WPAD_NUNCHUK_BUTTON_Z int
+[32m[OK  ][0m wiitools.WPAD_NUNCHUK_BUTTON_C int
+[32m[OK  ][0m wiitools.WPAD_CLASSIC_BUTTON_A int
+[32m[OK  ][0m wiitools.WPAD_CLASSIC_BUTTON_B int
+[32m[OK  ][0m wiitools.WPAD_CHAN_0 int
+[32m[OK  ][0m wiitools.WPAD_CHAN_ALL int
+[32m[OK  ][0m wiitools.WPAD_MAX_WIIMOTES int
+[32m[OK  ][0m wiitools.AF_INET int
+[32m[OK  ][0m wiitools.SOCK_STREAM int
+[32m[OK  ][0m wiitools.SOCK_DGRAM int
+[32m[OK  ][0m wiitools.SOL_SOCKET int
+[32m[OK  ][0m wiitools.SO_REUSEADDR int
+[32m[OK  ][0m wiitools.FIONBIO int
+[32m[OK  ][0m wiitools.POLLIN int
+[32m[OK  ][0m wiitools.update callable
+[32m[OK  ][0m wiitools.terminal_print callable
+[32m[OK  ][0m wiitools.render_text callable
+[32m[OK  ][0m wiitools.draw_rect callable
+[32m[OK  ][0m wiitools.draw_circle callable
+[32m[OK  ][0m wiitools.draw_oval callable
+[32m[OK  ][0m wiitools.png_load callable
+[32m[OK  ][0m wiitools.png_show callable
+[32m[OK  ][0m wiitools.png_save callable
+[32m[OK  ][0m wiitools.png_unload callable
+[32m[OK  ][0m wiitools.png_load_embedded callable
+[32m[OK  ][0m wiitools.png_show_scaled callable
+[32m[OK  ][0m wiitools.png_show_region callable
+[32m[OK  ][0m wiitools.png_show_region_scaled callable
+[32m[OK  ][0m wiitools.png_show_fullscreen callable
+[32m[OK  ][0m wiitools.png_use callable
+[32m[OK  ][0m wiitools.png_info callable
+[32m[OK  ][0m wiitools.png_load_named callable
+[32m[OK  ][0m wiitools.png_load_embedded_named callable
+[32m[OK  ][0m wiitools.png_unload_all callable
+[32m[OK  ][0m wiitools.png callable
+[32m[OK  ][0m wiitools.png_quad callable
+[32m[OK  ][0m wiitools.fatInitDefault callable
+[32m[OK  ][0m wiitools.remove callable
+[32m[OK  ][0m wiitools.write_file callable
+[32m[OK  ][0m wiitools.read_file callable
+[32m[OK  ][0m wiitools.curl_get callable
+[32m[OK  ][0m wiitools.curl_post callable
+[32m[OK  ][0m wiitools.curl_request callable
+[32m[OK  ][0m wiitools.VIDEO_WaitVSync callable
+[32m[OK  ][0m wiitools.usleep callable
+[32m[OK  ][0m wiitools.render_update callable
+[32m[OK  ][0m wiitools.set_screen_size callable
+[32m[OK  ][0m wiitools.IsNetReady callable
+[32m[OK  ][0m wiitools.get_local_ip callable
+[32m[OK  ][0m wiitools.inet_addr callable
+[32m[OK  ][0m wiitools.inet_aton callable
+[32m[OK  ][0m wiitools.inet_ntoa callable
+[32m[OK  ][0m wiitools.net_socket callable
+[32m[OK  ][0m wiitools.net_close callable
+[32m[OK  ][0m wiitools.net_bind callable
+[32m[OK  ][0m wiitools.net_listen callable
+[32m[OK  ][0m wiitools.net_accept callable
+[32m[OK  ][0m wiitools.net_connect callable
+[32m[OK  ][0m wiitools.net_send callable
+[32m[OK  ][0m wiitools.net_recv callable
+[32m[OK  ][0m wiitools.net_read callable
+[32m[OK  ][0m wiitools.net_write callable
+[32m[OK  ][0m wiitools.net_sendto callable
+[32m[OK  ][0m wiitools.net_recvfrom callable
+[32m[OK  ][0m wiitools.net_setsockopt callable
+[32m[OK  ][0m wiitools.net_getsockname callable
+[32m[OK  ][0m wiitools.net_fcntl callable
+[32m[OK  ][0m wiitools.net_ioctl callable
+[32m[OK  ][0m wiitools.net_poll callable
+[32m[OK  ][0m wiitools.net_shutdown callable
+[32m[OK  ][0m wiitools.net_gethostbyname callable
+[32m[OK  ][0m wiitools.net_gethostip callable
+[32m[OK  ][0m wiitools.net_get_mac_address callable
+[32m[OK  ][0m wiitools.net_get_status callable
+[32m[OK  ][0m wiitools.WPAD_Init callable
+[32m[OK  ][0m wiitools.WPAD_ScanPads callable
+[32m[OK  ][0m wiitools.WPAD_GetStatus callable
+[32m[OK  ][0m wiitools.WPAD_Probe callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsDown callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsUp callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsHeld callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsDown_all callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsUp_all callable
+[32m[OK  ][0m wiitools.WPAD_ButtonsHeld_all callable
+[32m[OK  ][0m wiitools.WPAD_Rumble callable
+[32m[OK  ][0m wiitools.WPAD_SetDataFormat callable
+[32m[OK  ][0m wiitools.WPAD_SetVRes callable
+[32m[OK  ][0m wiitools.WPAD_SetIdleTimeout callable
+[32m[OK  ][0m wiitools.WPAD_BatteryLevel callable
+[32m[OK  ][0m wiitools.WPAD_IsSpeakerEnabled callable
+[32m[OK  ][0m wiitools.WPAD_ControlSpeaker callable
+[32m[OK  ][0m wiitools.WPAD_SetMotionPlus callable
+[32m[OK  ][0m wiitools.WPAD_EncodeData callable
+[32m[OK  ][0m wiitools.WPAD_SendStreamData callable
+[32m[OK  ][0m wiitools.WPAD_SetPowerButtonCallback callable
+[32m[OK  ][0m wiitools.WPAD_SetBatteryDeadCallback callable
+[32m[OK  ][0m wiitools.WPAD_GetPowerButtonEvent callable
+[32m[OK  ][0m wiitools.WPAD_GetBatteryDeadEvent callable
+[32m[OK  ][0m wiitools.WPAD_DroppedEvents callable
+[32m[OK  ][0m wiitools.WPAD_IR callable
+[32m[OK  ][0m wiitools.WPAD_Orientation callable
+[32m[OK  ][0m wiitools.WPAD_GForce callable
+[32m[OK  ][0m wiitools.WPAD_Accel callable
+[32m[OK  ][0m wiitools.WPAD_Expansion callable
+[32m[OK  ][0m wiitools.WPAD_Data callable
+[32m[OK  ][0m wiitools.PAD_Init callable
+[32m[OK  ][0m wiitools.PAD_ScanPads callable
+[32m[OK  ][0m wiitools.PAD_Sync callable
+[32m[OK  ][0m wiitools.PAD_Read callable
+[32m[OK  ][0m wiitools.PAD_Clamp callable
+[32m[OK  ][0m wiitools.PAD_StickX callable
+[32m[OK  ][0m wiitools.PAD_StickY callable
+[32m[OK  ][0m wiitools.PAD_SubStickX callable
+[32m[OK  ][0m wiitools.PAD_SubStickY callable
+[32m[OK  ][0m wiitools.PAD_TriggerL callable
+[32m[OK  ][0m wiitools.PAD_TriggerR callable
+[32m[OK  ][0m wiitools.PAD_ButtonsDown callable
+[32m[OK  ][0m wiitools.PAD_ButtonsUp callable
+[32m[OK  ][0m wiitools.PAD_ButtonsHeld callable
+[32m[OK  ][0m wiitools.PAD_Reset callable
+[32m[OK  ][0m wiitools.PAD_Recalibrate callable
+[32m[OK  ][0m wiitools.PAD_SetSpec callable
+[32m[OK  ][0m wiitools.PAD_ControlMotor callable
+[32m[OK  ][0m wiitools.PAD_SetSamplingCallback callable
+[32m[OK  ][0m wiitools.PAD_GetSamplingEvent callable
+[32m[OK  ][0m wiitools.CONF_Init callable
+[32m[OK  ][0m wiitools.CONF_GetLanguage callable
+[32m[OK  ][0m wiitools.CONF_GetRegion callable
+[32m[OK  ][0m wiitools.CONF_GetArea callable
+[32m[OK  ][0m wiitools.CONF_GetShutdownMode callable
+[32m[OK  ][0m wiitools.CONF_GetIdleLedMode callable
+[32m[OK  ][0m wiitools.CONF_GetProgressiveScan callable
+[32m[OK  ][0m wiitools.CONF_GetEuRGB60 callable
+[32m[OK  ][0m wiitools.CONF_GetIRSensitivity callable
+[32m[OK  ][0m wiitools.CONF_GetSensorBarPosition callable
+[32m[OK  ][0m wiitools.CONF_GetPadSpeakerVolume callable
+[32m[OK  ][0m wiitools.CONF_GetPadMotorMode callable
+[32m[OK  ][0m wiitools.CONF_GetSoundMode callable
+[32m[OK  ][0m wiitools.CONF_GetScreenSaverMode callable
+[32m[OK  ][0m wiitools.CONF_GetAspectRatio callable
+[32m[OK  ][0m wiitools.CONF_GetEULA callable
+[32m[OK  ][0m wiitools.CONF_GetWiiConnect24 callable
+[32m[OK  ][0m wiitools.CONF_GetVideo callable
+[32m[OK  ][0m wiitools.CONF_GetCounterBias callable
+[32m[OK  ][0m wiitools.CONF_GetDisplayOffsetH callable
+[32m[OK  ][0m wiitools.CONF_GetPadDevices callable
+[32m[OK  ][0m wiitools.CONF_GetNickName callable
+[32m[OK  ][0m wiitools.CONF_GetParentalPassword callable
+[32m[OK  ][0m wiitools.CONF_GetParentalAnswer callable
+[32m[OK  ][0m wiitools.CONF_GetLength callable
+[32m[OK  ][0m wiitools.CONF_GetType callable
+[32m[OK  ][0m wiitools.CONF_Get callable
+[32m[OK  ][0m wiitools.SYS_Time callable
+[32m[OK  ][0m wiitools.SYS_ResetButtonDown callable
+[32m[OK  ][0m wiitools.SYS_GetHollywoodRevision callable
+[32m[OK  ][0m wiitools.SYS_GetCounterBias callable
+[32m[OK  ][0m wiitools.SYS_SetCounterBias callable
+[32m[OK  ][0m wiitools.SYS_GetDisplayOffsetH callable
+[32m[OK  ][0m wiitools.SYS_SetDisplayOffsetH callable
+[32m[OK  ][0m wiitools.SYS_GetEuRGB60 callable
+[32m[OK  ][0m wiitools.SYS_SetEuRGB60 callable
+[32m[OK  ][0m wiitools.SYS_GetLanguage callable
+[32m[OK  ][0m wiitools.SYS_SetLanguage callable
+[32m[OK  ][0m wiitools.SYS_GetProgressiveScan callable
+[32m[OK  ][0m wiitools.SYS_SetProgressiveScan callable
+[32m[OK  ][0m wiitools.SYS_GetSoundMode callable
+[32m[OK  ][0m wiitools.SYS_SetSoundMode callable
+[32m[OK  ][0m wiitools.SYS_GetVideoMode callable
+[32m[OK  ][0m wiitools.SYS_SetVideoMode callable
+[32m[OK  ][0m wiitools.SYS_GetGBSMode callable
+[32m[OK  ][0m wiitools.SYS_SetGBSMode callable
+[32m[OK  ][0m wiitools.SYS_GetFontEncoding callable
+[32m[OK  ][0m wiitools.SYS_GetArena1Size callable
+[32m[OK  ][0m wiitools.SYS_GetArena2Size callable
+[32m[OK  ][0m wiitools.SYS_GetWirelessID callable
+[32m[OK  ][0m wiitools.SYS_SetWirelessID callable
+[32m[OK  ][0m wiitools.SYS_SetPowerCallback callable
+[32m[OK  ][0m wiitools.SYS_SetResetCallback callable
+[32m[OK  ][0m wiitools.SYS_GetPowerEvent callable
+[32m[OK  ][0m wiitools.SYS_GetResetEvent callable
+[32m[OK  ][0m wiitools.SYS_Report callable
+[32m[OK  ][0m wiitools.SYS_STDIO_Report callable
+[32m[OK  ][0m wiitools.SYS_CreateAlarm callable
+[32m[OK  ][0m wiitools.SYS_RemoveAlarm callable
+[32m[OK  ][0m wiitools.SYS_CancelAlarm callable
+[32m[OK  ][0m wiitools.SYS_SetAlarm callable
+[32m[OK  ][0m wiitools.SYS_SetPeriodicAlarm callable
+[32m[OK  ][0m wiitools.SYS_GetAlarmEvent callable
+[32m[OK  ][0m wiitools.AUDIO_Init callable
+[32m[OK  ][0m wiitools.AUDIO_GetDSPSampleRate callable
+[32m[OK  ][0m wiitools.AUDIO_SetDSPSampleRate callable
+[32m[OK  ][0m wiitools.AUDIO_GetDMAEnableFlag callable
+[32m[OK  ][0m wiitools.AUDIO_GetDMABytesLeft callable
+[32m[OK  ][0m wiitools.AUDIO_GetDMALength callable
+[32m[OK  ][0m wiitools.AUDIO_GetDMAStartAddr callable
+[32m[OK  ][0m wiitools.AUDIO_InitDMA callable
+[32m[OK  ][0m wiitools.AUDIO_StartDMA callable
+[32m[OK  ][0m wiitools.AUDIO_StopDMA callable
+[32m[OK  ][0m wiitools.AUDIO_RegisterDMACallback callable
+[32m[OK  ][0m wiitools.AUDIO_GetDMAEvent callable
+[32m[OK  ][0m wiitools.audio_play_tone callable
+[32m[OK  ][0m wiitools.CON_GetMetrics callable
+[32m[OK  ][0m wiitools.CON_GetPosition callable
+[32m[OK  ][0m wiitools.CON_EnableGecko callable
+[32m[OK  ][0m wiitools.surface_new callable
+[32m[OK  ][0m wiitools.surface_fill callable
+[32m[OK  ][0m wiitools.surface_blit callable
+[32m[OK  ][0m wiitools.surface_get_size callable
+[32m[OK  ][0m wiitools.surface_set_target callable
+[32m[OK  ][0m wiitools.surface_clear_target callable
+[32m[OK  ][0m wiitools.blit callable
+[32m[OK  ][0m wiitools.text_length callable
+[32m[OK  ][0m wiitools.WPAD_SetEventBufs callable
+[32m[OK  ][0m wiitools.WPAD_Flush callable
+[32m[OK  ][0m wiitools.WPAD_ReadPending callable
+[32m[OK  ][0m wiitools.WPAD_ReadEvent callable
+[32m[OK  ][0m wiitools.WPAD_SetIdleThresholds callable
+[32m[OK  ][0m SYS_Time() int
+[32m[OK  ][0m SYS_Time() > 0
+[32m[OK  ][0m IsNetReady() 0/1
+[32m[OK  ][0m inet_addr('127.0.0.1') int
+[32m[OK  ][0m inet_aton not None
+[32m[OK  ][0m VIDEO_WaitVSync
+[32m[OK  ][0m usleep(0) None
+[32m[OK  ][0m CON_GetMetrics tuple len 2
+[32m[OK  ][0m CON_GetMetrics cols > 0
+[32m[OK  ][0m CON_GetMetrics rows > 0
+[32m[OK  ][0m SYS_ResetButtonDown int
+[32m[OK  ][0m WPAD_GetStatus int
+
+[36m=== zlib ===[0m
+[32m[OK  ][0m import zlib
+[32m[OK  ][0m zlib.DEFLATED int
+[32m[OK  ][0m zlib.DEF_MEM_LEVEL int
+[32m[OK  ][0m zlib.DEF_BUF_SIZE int
+[32m[OK  ][0m zlib.MAX_WBITS int
+[32m[OK  ][0m zlib.Z_BEST_COMPRESSION int
+[32m[OK  ][0m zlib.Z_BEST_SPEED int
+[32m[OK  ][0m zlib.Z_DEFAULT_COMPRESSION int
+[32m[OK  ][0m zlib.Z_DEFAULT_STRATEGY int
+[32m[OK  ][0m zlib.Z_FILTERED int
+[32m[OK  ][0m zlib.Z_FIXED int
+[32m[OK  ][0m zlib.Z_HUFFMAN_ONLY int
+[32m[OK  ][0m zlib.Z_RLE int
+[32m[OK  ][0m zlib.Z_NO_FLUSH int
+[32m[OK  ][0m zlib.Z_SYNC_FLUSH int
+[32m[OK  ][0m zlib.Z_FULL_FLUSH int
+[32m[OK  ][0m zlib.Z_FINISH int
+[32m[OK  ][0m zlib.Z_BLOCK int
+[32m[OK  ][0m zlib.Z_TREES int
+[32m[OK  ][0m zlib.ZLIB_VERSION str
+[32m[OK  ][0m zlib.error is Exception
+[32m[OK  ][0m zlib compress/decompress r-t b''
+[32m[OK  ][0m zlib compress/decompress r-t b'hello wii'
+[32m[OK  ][0m zlib compress/decompress r-t b'hello wii he'
+[32m[OK  ][0m zlib compress/decompress r-t b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b'
+[32m[OK  ][0m zlib level 1 r-t
+[32m[OK  ][0m zlib level -1 r-t
+[32m[OK  ][0m zlib level 9 r-t
+[32m[OK  ][0m zlib raw deflate r-t
+[32m[OK  ][0m zlib compressobj
+[32m[OK  ][0m zlib decompressobj
+[32m[OK  ][0m zlib.crc32(b'hello')
+[32m[OK  ][0m zlib.crc32 empty==0
+[32m[OK  ][0m zlib.crc32 cumulative
+[32m[OK  ][0m zlib.crc32 returns int
+[32m[OK  ][0m zlib.adler32(b'hello')
+[32m[OK  ][0m zlib.adler32 empty==1
+[32m[OK  ][0m zlib.adler32 int
+[32m[OK  ][0m zlib.decompress bad data raises error
+
+[36m=== abc ===[0m
+[32m[OK  ][0m import abc
+[32m[OK  ][0m abc.ABCMeta
+[32m[OK  ][0m abc.abstractmethod
+[32m[OK  ][0m abc abstract cannot instantiate
+[32m[OK  ][0m abc concrete ok
+
+[36m=== argparse ===[0m
+[32m[OK  ][0m import argparse
+[32m[OK  ][0m argparse default
+[32m[OK  ][0m argparse --val 42
+[32m[OK  ][0m argparse.Action exists
+
+[36m=== ast ===[0m
+[32m[OK  ][0m import ast
+[32m[OK  ][0m ast.parse returns Module
+[32m[OK  ][0m ast.dump str
+[32m[OK  ][0m ast.literal_eval int
+[32m[OK  ][0m ast.literal_eval list
+[32m[OK  ][0m ast.literal_eval dict
+[32m[OK  ][0m ast.literal_eval expr raises ValueError
+
+[36m=== asyncio ===[0m
+[32m[OK  ][0m import asyncio
+[32m[OK  ][0m asyncio.Future
+[32m[OK  ][0m asyncio.Task
+[32m[OK  ][0m asyncio.sleep
+[32m[OK  ][0m asyncio.gather
+[32m[OK  ][0m asyncio.new_event_loop
+[32m[OK  ][0m asyncio run coroutine
+[32m[OK  ][0m asyncio gather
+[32m[OK  ][0m asyncio await sleep(0)
+[32m[OK  ][0m asyncio Future lifecycle
+
+[36m=== atexit ===[0m
+[32m[OK  ][0m import atexit
+[32m[OK  ][0m atexit.register callable
+[32m[OK  ][0m atexit.register/unregister ok
+
+[36m=== base64 ===[0m
+[32m[OK  ][0m import base64
+[32m[OK  ][0m b64encode
+[32m[OK  ][0m b64decode
+[32m[OK  ][0m b64 r-t
+[32m[OK  ][0m b16encode
+[32m[OK  ][0m b16decode
+[32m[OK  ][0m b32encode
+[32m[OK  ][0m b32 r-t
+[32m[OK  ][0m urlsafe_b64encode
+
+[36m=== bisect ===[0m
+[32m[OK  ][0m import bisect
+[32m[OK  ][0m bisect_left
+[32m[OK  ][0m bisect_right
+[32m[OK  ][0m bisect_left 0
+[32m[OK  ][0m insort_left
+[32m[OK  ][0m insort_right
+
+[36m=== builtins ===[0m
+[32m[OK  ][0m import builtins
+[32m[OK  ][0m builtins.print
+[32m[OK  ][0m builtins.len
+[32m[OK  ][0m builtins.range
+[32m[OK  ][0m builtins.list
+[32m[OK  ][0m builtins.dict
+[32m[OK  ][0m builtins.set
+[32m[OK  ][0m builtins.tuple
+[32m[OK  ][0m builtins.int
+[32m[OK  ][0m builtins.float
+[32m[OK  ][0m builtins.str
+[32m[OK  ][0m builtins.bool
+[32m[OK  ][0m builtins.bytes
+[32m[OK  ][0m builtins.type
+[32m[OK  ][0m builtins.object
+[32m[OK  ][0m builtins.isinstance
+[32m[OK  ][0m builtins.issubclass
+[32m[OK  ][0m builtins.hasattr
+[32m[OK  ][0m builtins.getattr
+[32m[OK  ][0m builtins.setattr
+[32m[OK  ][0m builtins.delattr
+[32m[OK  ][0m builtins.callable
+[32m[OK  ][0m builtins.iter
+[32m[OK  ][0m builtins.next
+[32m[OK  ][0m builtins.map
+[32m[OK  ][0m builtins.filter
+[32m[OK  ][0m builtins.zip
+[32m[OK  ][0m builtins.enumerate
+[32m[OK  ][0m builtins.sorted
+[32m[OK  ][0m builtins.reversed
+[32m[OK  ][0m builtins.sum
+[32m[OK  ][0m builtins.min
+[32m[OK  ][0m builtins.max
+[32m[OK  ][0m builtins.abs
+[32m[OK  ][0m builtins.round
+[32m[OK  ][0m builtins.divmod
+[32m[OK  ][0m builtins.pow
+[32m[OK  ][0m builtins.hash
+[32m[OK  ][0m builtins.id
+[32m[OK  ][0m builtins.repr
+[32m[OK  ][0m builtins.ascii
+[32m[OK  ][0m builtins.chr
+[32m[OK  ][0m builtins.ord
+[32m[OK  ][0m builtins.hex
+[32m[OK  ][0m builtins.oct
+[32m[OK  ][0m builtins.bin
+[32m[OK  ][0m builtins.format
+[32m[OK  ][0m builtins.vars
+[32m[OK  ][0m builtins.dir
+[32m[OK  ][0m builtins.globals
+[32m[OK  ][0m builtins.locals
+[32m[OK  ][0m builtins.eval
+[32m[OK  ][0m builtins.exec
+[32m[OK  ][0m builtins.compile
+[32m[OK  ][0m builtins.open
+[32m[OK  ][0m builtins.input
+[32m[OK  ][0m builtins.print
+[32m[OK  ][0m builtins.super
+[32m[OK  ][0m builtins.property
+[32m[OK  ][0m builtins.staticmethod
+[32m[OK  ][0m builtins.classmethod
+[32m[OK  ][0m builtins.Exception
+[32m[OK  ][0m builtins.TypeError
+[32m[OK  ][0m builtins.ValueError
+[32m[OK  ][0m builtins.KeyError
+[32m[OK  ][0m builtins.IndexError
+[32m[OK  ][0m builtins.AttributeError
+[32m[OK  ][0m builtins.ImportError
+[32m[OK  ][0m builtins.OSError
+[32m[OK  ][0m builtins.StopIteration
+[32m[OK  ][0m builtins.RuntimeError
+[32m[OK  ][0m builtins len([1,2,3])==3
+[32m[OK  ][0m builtins abs(-5)==5
+[32m[OK  ][0m builtins chr(65)=='A'
+[32m[OK  ][0m builtins ord('A')==65
+
+[36m=== bz2 ===[0m
+[32m[OK  ][0m import bz2
+[32m[OK  ][0m bz2.compress returns bytes
+[32m[OK  ][0m bz2.decompress r-t
+[32m[OK  ][0m bz2 small input
+[32m[OK  ][0m BZ2Compressor r-t
+[32m[OK  ][0m BZ2Decompressor r-t
+
+[36m=== calendar ===[0m
+[32m[OK  ][0m import calendar
+[32m[OK  ][0m calendar.isleap(2000)
+[32m[OK  ][0m calendar.isleap(1900)
+[32m[OK  ][0m calendar.isleap(2024)
+[32m[OK  ][0m calendar.leapdays
+[32m[OK  ][0m monthcalendar is list
+[32m[OK  ][0m monthcalendar rows
+[32m[OK  ][0m weekday(2000,1,1)==5
+[32m[OK  ][0m month_name[1]
+[32m[OK  ][0m day_name[0]
+
+[36m=== cmd ===[0m
+[32m[OK  ][0m import cmd
+[32m[OK  ][0m cmd.Cmd exists
+[32m[OK  ][0m cmd.Cmd is class
+
+[36m=== code ===[0m
+[32m[OK  ][0m import code
+[32m[OK  ][0m code.InteractiveConsole
+[32m[OK  ][0m code.compile_command callable
+[32m[OK  ][0m code.compile_command ok
+
+[36m=== codecs ===[0m
+[32m[OK  ][0m import codecs
+[32m[OK  ][0m codecs.encode utf-8
+[32m[OK  ][0m codecs.decode utf-8
+[32m[OK  ][0m codecs.encode base64
+[32m[OK  ][0m codecs.lookup utf-8
+[32m[OK  ][0m codecs.open callable
+[32m[OK  ][0m codecs.BOM_UTF8
+
+[36m=== collections ===[0m
+[32m[OK  ][0m import collections
+[32m[OK  ][0m deque append/appendleft
+[32m[OK  ][0m deque rotate
+[32m[OK  ][0m deque maxlen
+[32m[OK  ][0m Counter most_common
+[32m[OK  ][0m Counter['a']==2
+[32m[OK  ][0m OrderedDict order
+[32m[OK  ][0m OrderedDict move_to_end
+[32m[OK  ][0m namedtuple x
+[32m[OK  ][0m namedtuple _asdict
+[32m[OK  ][0m defaultdict list
+[32m[OK  ][0m defaultdict missing
+[32m[OK  ][0m ChainMap a
+[32m[OK  ][0m ChainMap b
+
+[36m=== colorsys ===[0m
+[32m[OK  ][0m import colorsys
+[32m[OK  ][0m rgb_to_hsv red h==0
+[32m[OK  ][0m rgb_to_hsv red s==1
+[32m[OK  ][0m rgb_to_hsv red v==1
+[32m[OK  ][0m hsv_to_rgb r==1
+[32m[OK  ][0m hsv_to_rgb g==0
+[32m[OK  ][0m rgb_to_hls callable
+[32m[OK  ][0m yiq_to_rgb callable
+
+[36m=== compileall ===[0m
+[32m[OK  ][0m import compileall
+[32m[OK  ][0m compileall.compile_file callable
+[32m[OK  ][0m compileall.compile_dir callable
+
+[36m=== concurrent ===[0m
+[32m[OK  ][0m import concurrent
+[32m[OK  ][0m concurrent.futures importable
+
+[36m=== configparser ===[0m
+[32m[OK  ][0m import configparser
+[32m[OK  ][0m configparser get
+[32m[OK  ][0m configparser getint
+[32m[OK  ][0m configparser sections
+[32m[OK  ][0m configparser has_option
+[32m[OK  ][0m configparser write callable
+
+[36m=== contextlib ===[0m
+[32m[OK  ][0m import contextlib
+[32m[OK  ][0m contextmanager yield
+[32m[OK  ][0m closing callable
+[32m[OK  ][0m suppress callable
+[32m[OK  ][0m nullcontext
+[32m[OK  ][0m contextlib.suppress works
+[32m[OK  ][0m nullcontext value
+
+[36m=== contextvars ===[0m
+[32m[OK  ][0m import contextvars
+[32m[OK  ][0m ContextVar default
+[32m[OK  ][0m ContextVar set
+[32m[OK  ][0m ContextVar reset
+[32m[OK  ][0m copy_context
+
+[36m=== copy ===[0m
+[32m[OK  ][0m import copy
+[32m[OK  ][0m copy shallow list
+[32m[OK  ][0m copy shallow is not same
+[32m[OK  ][0m copy shallow shares nested
+[32m[OK  ][0m deepcopy independent
+[32m[OK  ][0m deepcopy equal
+
+[36m=== copyreg ===[0m
+[32m[OK  ][0m import copyreg
+[32m[OK  ][0m copyreg.dispatch_table dict
+[32m[OK  ][0m copyreg.pickle callable
+
+[36m=== csv ===[0m
+[32m[OK  ][0m import csv
+[32m[OK  ][0m csv reader
+[32m[OK  ][0m csv writer
+[32m[OK  ][0m csv DictWriter
+[32m[OK  ][0m csv DictReader
+[32m[OK  ][0m csv.QUOTE_ALL int
+[32m[OK  ][0m csv.excel dialect
+
+[36m=== dataclasses ===[0m
+[32m[OK  ][0m import dataclasses
+[32m[OK  ][0m dataclass x
+[32m[OK  ][0m dataclass default
+[32m[OK  ][0m dataclass repr
+[32m[OK  ][0m asdict
+[32m[OK  ][0m astuple
+[32m[OK  ][0m fields
+[32m[OK  ][0m is_dataclass
+
+[36m=== datetime ===[0m
+[32m[OK  ][0m import datetime
+[32m[OK  ][0m date year
+[32m[OK  ][0m date month
+[32m[OK  ][0m date day
+[32m[OK  ][0m date isoformat
+[32m[OK  ][0m datetime year
+[32m[OK  ][0m datetime isoformat
+[32m[OK  ][0m timedelta total_seconds
+[32m[OK  ][0m date arithmetic
+[32m[OK  ][0m time hour
+[32m[OK  ][0m time isoformat
+
+[36m=== decimal ===[0m
+[32m[OK  ][0m import decimal
+[32m[OK  ][0m Decimal('1.1')+Decimal('2.2')
+[32m[OK  ][0m Decimal precision
+[32m[OK  ][0m Decimal sqrt
+[32m[OK  ][0m Decimal is_nan
+[32m[OK  ][0m Decimal is_inf
+[32m[OK  ][0m getcontext
+[32m[OK  ][0m context prec
+
+[36m=== difflib ===[0m
+[32m[OK  ][0m import difflib
+[32m[OK  ][0m SequenceMatcher ratio>0
+[32m[OK  ][0m SequenceMatcher <1
+[32m[OK  ][0m unified_diff non-empty
+[32m[OK  ][0m ndiff non-empty
+[32m[OK  ][0m get_close_matches
+
+[36m=== dis ===[0m
+[32m[OK  ][0m import dis
+[32m[OK  ][0m dis.dis produces output
+[32m[OK  ][0m dis.opname list/seq
+[32m[OK  ][0m dis.opmap mapping
+[32m[OK  ][0m dis.HAVE_ARGUMENT
+
+[36m=== email ===[0m
+[32m[OK  ][0m import email
+[32m[OK  ][0m email Subject
+[32m[OK  ][0m email From
+[32m[OK  ][0m email body
+[32m[OK  ][0m email.parser Subject
+
+[36m=== encodings ===[0m
+[32m[OK  ][0m import encodings
+[32m[OK  ][0m encodings.utf_8 importable
+[32m[OK  ][0m encodings utf-8 via codecs
+
+[36m=== enum ===[0m
+[32m[OK  ][0m import enum
+[32m[OK  ][0m Enum value
+[32m[OK  ][0m Enum name
+[32m[OK  ][0m Enum list
+[32m[OK  ][0m Enum from value
+[32m[OK  ][0m Enum in
+[32m[OK  ][0m Flag combine
+[32m[OK  ][0m IntEnum int op
+
+[36m=== faulthandler ===[0m
+[32m[OK  ][0m import faulthandler
+[32m[OK  ][0m faulthandler.enable callable
+[32m[OK  ][0m faulthandler.disable callable
+[32m[OK  ][0m faulthandler.is_enabled bool
+[32m[OK  ][0m faulthandler.dump_traceback callable
+
+[36m=== filecmp ===[0m
+[32m[OK  ][0m import filecmp
+[32m[OK  ][0m filecmp.cmp callable
+[32m[OK  ][0m filecmp.dircmp callable
+[32m[OK  ][0m filecmp.cmpfiles callable
+
+[36m=== fileinput ===[0m
+[32m[OK  ][0m import fileinput
+[32m[OK  ][0m fileinput.input callable
+[32m[OK  ][0m fileinput.filename callable
+[32m[OK  ][0m fileinput.FileInput class
+
+[36m=== fnmatch ===[0m
+[32m[OK  ][0m import fnmatch
+[32m[OK  ][0m fnmatch *.py
+[32m[OK  ][0m fnmatch *.c no
+[32m[OK  ][0m fnmatch filter
+[32m[OK  ][0m fnmatch translate
+
+[36m=== fractions ===[0m
+[32m[OK  ][0m import fractions
+[32m[OK  ][0m Fraction(1,3)+Fraction(1,6)
+[32m[OK  ][0m Fraction from str
+[32m[OK  ][0m Fraction numerator
+[32m[OK  ][0m Fraction limit_denominator
+
+[36m=== functools ===[0m
+[32m[OK  ][0m import functools
+[32m[OK  ][0m partial
+[32m[OK  ][0m lru_cache fib(10)
+[32m[OK  ][0m lru_cache_info
+[32m[OK  ][0m reduce
+[32m[OK  ][0m total_ordering
+[32m[OK  ][0m wraps callable
+[32m[OK  ][0m singledispatch int
+[32m[OK  ][0m singledispatch default
+
+[36m=== genericpath ===[0m
+[32m[OK  ][0m import genericpath
+[32m[OK  ][0m genericpath.exists callable
+[32m[OK  ][0m genericpath.isfile callable
+[32m[OK  ][0m genericpath.isdir callable
+[32m[OK  ][0m genericpath.commonprefix
+
+[36m=== getopt ===[0m
+[32m[OK  ][0m import getopt
+[32m[OK  ][0m getopt short
+[32m[OK  ][0m getopt long
+[32m[OK  ][0m getopt args
+
+[36m=== getpass ===[0m
+[32m[OK  ][0m import getpass
+[32m[OK  ][0m getpass.getpass callable
+[32m[OK  ][0m getpass.getuser callable
+
+[36m=== gettext ===[0m
+[32m[OK  ][0m import gettext
+[32m[OK  ][0m gettext.gettext callable
+[32m[OK  ][0m gettext.ngettext callable
+[32m[OK  ][0m gettext.NullTranslations
+[32m[OK  ][0m NullTranslations.gettext
+
+[36m=== glob ===[0m
+[32m[OK  ][0m import glob
+[32m[OK  ][0m glob *.py returns list
+[31m[FAIL][0m glob sd:/python/lib/*.py non-empty: expected True got False
+[31m[FAIL][0m iglob returns items: expected True got False
+[32m[OK  ][0m glob escape callable
+
+[36m=== graphlib ===[0m
+[32m[OK  ][0m import graphlib
+[32m[OK  ][0m graphlib topo order
+[32m[OK  ][0m graphlib cycle raises CycleError
+
+[36m=== gzip ===[0m
+[32m[OK  ][0m import gzip
+[32m[OK  ][0m gzip compress bytes
+[32m[OK  ][0m gzip decompress r-t
+[32m[OK  ][0m gzip compress empty
+[32m[OK  ][0m gzip compresslevel 9
+
+[36m=== hashlib ===[0m
+[32m[OK  ][0m import hashlib
+[32m[OK  ][0m md5
+[32m[OK  ][0m sha1
+[32m[OK  ][0m sha256
+[32m[OK  ][0m sha512
+[32m[OK  ][0m hashlib update
+[32m[OK  ][0m hashlib copy
+[32m[OK  ][0m hashlib digest_size md5
+[32m[OK  ][0m algorithms_available
+
+[36m=== heapq ===[0m
+[32m[OK  ][0m import heapq
+[32m[OK  ][0m heapify min
+[32m[OK  ][0m heappush min
+[32m[OK  ][0m heappop next
+[32m[OK  ][0m nlargest
+[32m[OK  ][0m nsmallest
+[32m[OK  ][0m merge sorted
+
+[36m=== hmac ===[0m
+[32m[OK  ][0m import hmac
+[32m[OK  ][0m hmac digest bytes
+[32m[OK  ][0m hmac digest len
+[32m[OK  ][0m hmac compare_digest
+[32m[OK  ][0m hmac compare diff
+
+[36m=== html ===[0m
+[32m[OK  ][0m import html
+[32m[OK  ][0m html.escape
+[32m[OK  ][0m html.escape amp
+[32m[OK  ][0m html.unescape
+[32m[OK  ][0m html.parser tags
+
+[36m=== http ===[0m
+[32m[OK  ][0m import http
+[32m[OK  ][0m http.client.HTTPConnection class
+[32m[OK  ][0m http.server.BaseHTTPRequestHandler
+[32m[OK  ][0m http.cookies set
+[32m[OK  ][0m http.cookiejar CookieJar
+
+[36m=== importlib ===[0m
+[32m[OK  ][0m import importlib
+[32m[OK  ][0m importlib.import_module math
+[32m[OK  ][0m importlib.import_module pi
+[32m[OK  ][0m importlib.util.find_spec
+[32m[OK  ][0m importlib.util.find_spec math
+
+[36m=== inspect ===[0m
+[32m[OK  ][0m import inspect
+[32m[OK  ][0m inspect.signature
+[32m[OK  ][0m inspect.isfunction
+[32m[OK  ][0m inspect.isbuiltin abs
+[32m[OK  ][0m inspect.ismodule
+[32m[OK  ][0m inspect.isclass
+[32m[OK  ][0m inspect.getdoc
+[32m[OK  ][0m inspect.getsourcelines callable
+[32m[OK  ][0m inspect params a
+[32m[OK  ][0m inspect params b default
+
+[36m=== io ===[0m
+[32m[OK  ][0m import io
+[32m[OK  ][0m StringIO read
+[32m[OK  ][0m StringIO readline
+[32m[OK  ][0m StringIO write
+[32m[OK  ][0m BytesIO read
+[32m[OK  ][0m BytesIO write
+[32m[OK  ][0m io.DEFAULT_BUFFER_SIZE int
+
+[36m=== ipaddress ===[0m
+[32m[OK  ][0m import ipaddress
+[32m[OK  ][0m IPv4Address str
+[32m[OK  ][0m IPv4Address packed
+[32m[OK  ][0m IPv4Address private
+[32m[OK  ][0m IPv4Network num_addresses
+[32m[OK  ][0m IPv4Network contains
+[32m[OK  ][0m IPv6Address loopback
+[32m[OK  ][0m ip_address factory
+
+[36m=== json ===[0m
+[32m[OK  ][0m import json
+[32m[OK  ][0m json.dumps dict
+[32m[OK  ][0m json.dumps list
+[32m[OK  ][0m json.loads dict
+[32m[OK  ][0m json.loads list
+[32m[OK  ][0m json round-trip
+[32m[OK  ][0m json.dumps indent
+[32m[OK  ][0m json.dumps ensure_ascii
+[32m[OK  ][0m json.loads bad input raises JSONDecodeError
+
+[36m=== keyword ===[0m
+[32m[OK  ][0m import keyword
+[32m[OK  ][0m keyword.iskeyword 'if'
+[32m[OK  ][0m keyword.iskeyword 'hello'
+[32m[OK  ][0m keyword.kwlist list
+[32m[OK  ][0m keyword.kwlist 'for' in
+[32m[OK  ][0m keyword.issoftkeyword
+
+[36m=== linecache ===[0m
+[32m[OK  ][0m import linecache
+[32m[OK  ][0m linecache.getline callable
+[32m[OK  ][0m linecache.clearcache callable
+[32m[OK  ][0m linecache.checkcache callable
+
+[36m=== locale ===[0m
+[32m[OK  ][0m import locale
+[32m[OK  ][0m locale.getlocale callable
+[32m[OK  ][0m locale.setlocale callable
+[32m[OK  ][0m locale.format_string callable
+[32m[OK  ][0m locale.LC_ALL int
+[32m[OK  ][0m locale.LC_NUMERIC int
+
+[36m=== logging ===[0m
+[32m[OK  ][0m import logging
+[32m[OK  ][0m logging.DEBUG==10
+[32m[OK  ][0m logging.INFO==20
+[32m[OK  ][0m logging.WARNING==30
+[32m[OK  ][0m logging.ERROR==40
+[32m[OK  ][0m logging.CRITICAL==50
+[32m[OK  ][0m getLogger returns Logger
+[32m[OK  ][0m logging output
+
+[36m=== lzma ===[0m
+[32m[OK  ][0m import lzma
+[32m[OK  ][0m lzma compress bytes
+[32m[OK  ][0m lzma decompress r-t
+[32m[OK  ][0m LZMACompressor r-t
+[32m[OK  ][0m lzma FORMAT_XZ int
+
+[36m=== numbers ===[0m
+[32m[OK  ][0m import numbers
+[32m[OK  ][0m numbers.Number
+[32m[OK  ][0m numbers.Integral
+[32m[OK  ][0m numbers.Real
+[32m[OK  ][0m numbers.Complex
+[32m[OK  ][0m numbers.Rational
+
+[36m=== operator ===[0m
+[32m[OK  ][0m import operator
+[32m[OK  ][0m operator.add
+[32m[OK  ][0m operator.mul
+[32m[OK  ][0m operator.sub
+[32m[OK  ][0m operator.truediv
+[32m[OK  ][0m operator.floordiv
+[32m[OK  ][0m operator.mod
+[32m[OK  ][0m operator.pow
+[32m[OK  ][0m operator.neg
+[32m[OK  ][0m operator.lt
+[32m[OK  ][0m operator.eq
+[32m[OK  ][0m operator.itemgetter
+[32m[OK  ][0m operator.attrgetter
+[32m[OK  ][0m operator.methodcaller
+[32m[OK  ][0m operator.not_
+[32m[OK  ][0m operator.and_
+[32m[OK  ][0m operator.or_
+
+[36m=== os ===[0m
+[32m[OK  ][0m import os
+[32m[OK  ][0m os.getcwd() str
+[31m[FAIL][0m os.listdir('sd:/'): FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+[32m[OK  ][0m os.path.join
+[32m[OK  ][0m os.path.basename
+[32m[OK  ][0m os.path.dirname
+[32m[OK  ][0m os.path.splitext
+[31m[FAIL][0m os.path.exists sd:/: expected True got False
+[31m[FAIL][0m os.path.isdir sd:/: expected True got False
+[32m[OK  ][0m os.sep
+[32m[OK  ][0m os.linesep str
+[32m[OK  ][0m os.getpid int
+[32m[OK  ][0m os.urandom(8) bytes
+[32m[OK  ][0m os.urandom random
+[32m[OK  ][0m os.makedirs
+[32m[OK  ][0m os.rmdir
+
+[36m=== pathlib ===[0m
+[32m[OK  ][0m import pathlib
+[32m[OK  ][0m PurePosixPath name
+[32m[OK  ][0m PurePosixPath stem
+[32m[OK  ][0m PurePosixPath suffix
+[32m[OK  ][0m PurePosixPath parent
+[31m[FAIL][0m Path.is_dir sd:/python/lib: expected True got False
+[32m[OK  ][0m Path / operator
+[31m[FAIL][0m Path.glob *.py: expected True got False
+[31m[FAIL][0m Path.iterdir: FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+
+[36m=== pickle ===[0m
+[32m[OK  ][0m import pickle
+[32m[OK  ][0m pickle r-t None
+[32m[OK  ][0m pickle r-t True
+[32m[OK  ][0m pickle r-t 42
+[32m[OK  ][0m pickle r-t 3.14
+[32m[OK  ][0m pickle r-t 'hello'
+[32m[OK  ][0m pickle r-t b'bytes'
+[32m[OK  ][0m pickle r-t [1, 2, 3]
+[32m[OK  ][0m pickle r-t (1, 2)
+[32m[OK  ][0m pickle r-t {'a': 1}
+[32m[OK  ][0m pickle r-t {1, 2, 3}
+[32m[OK  ][0m pickle r-t frozenset({1, 2})
+[32m[OK  ][0m pickle dump/load
+[32m[OK  ][0m pickle.HIGHEST_PROTOCOL int
+
+[36m=== pprint ===[0m
+[32m[OK  ][0m import pprint
+[32m[OK  ][0m pprint output non-empty
+[32m[OK  ][0m pprint.pformat str
+[32m[OK  ][0m pprint.isreadable
+[32m[OK  ][0m pprint.PrettyPrinter
+
+[36m=== queue ===[0m
+[32m[OK  ][0m import queue
+[32m[OK  ][0m Queue put/get
+[32m[OK  ][0m Queue size
+[32m[OK  ][0m Queue empty
+[32m[OK  ][0m Queue empty now
+[32m[OK  ][0m Queue.get_nowait raises Empty
+[32m[OK  ][0m LifoQueue LIFO
+[32m[OK  ][0m PriorityQueue min first
+[32m[OK  ][0m SimpleQueue get
+
+[36m=== random ===[0m
+[32m[OK  ][0m import random
+[32m[OK  ][0m random() in [0,1)
+[32m[OK  ][0m randint(1,10)
+[32m[OK  ][0m uniform(1,2)
+[32m[OK  ][0m shuffle same elements
+[32m[OK  ][0m choice in list
+[32m[OK  ][0m sample no repeat
+[32m[OK  ][0m gauss returns float
+[32m[OK  ][0m randrange
+
+[36m=== re ===[0m
+[32m[OK  ][0m import re
+[32m[OK  ][0m re.match
+[32m[OK  ][0m re.match fail
+[32m[OK  ][0m re.search
+[32m[OK  ][0m re.findall
+[32m[OK  ][0m re.sub
+[32m[OK  ][0m re.split
+[32m[OK  ][0m re.compile match
+[32m[OK  ][0m re group 1
+[32m[OK  ][0m re group 2
+[32m[OK  ][0m re groups
+[32m[OK  ][0m re named group
+[32m[OK  ][0m re.IGNORECASE
+[32m[OK  ][0m re.fullmatch
+[32m[OK  ][0m re.fullmatch fail
+
+[36m=== reprlib ===[0m
+[32m[OK  ][0m import reprlib
+[32m[OK  ][0m reprlib.repr list
+[32m[OK  ][0m reprlib truncates
+[32m[OK  ][0m reprlib.aRepr
+
+[36m=== runpy ===[0m
+[32m[OK  ][0m import runpy
+[32m[OK  ][0m runpy.run_module callable
+[32m[OK  ][0m runpy.run_path callable
+
+[36m=== sched ===[0m
+[32m[OK  ][0m import sched
+[32m[OK  ][0m sched.enter fired
+[32m[OK  ][0m sched.empty
+[32m[OK  ][0m sched two events
+
+[36m=== secrets ===[0m
+[32m[OK  ][0m import secrets
+[32m[OK  ][0m secrets.token_bytes(16)
+[32m[OK  ][0m secrets.token_hex(8) str
+[32m[OK  ][0m secrets.token_hex(8) len
+[32m[OK  ][0m secrets.token_urlsafe
+[32m[OK  ][0m secrets.choice
+[32m[OK  ][0m secrets.randbits(8)<256
+[32m[OK  ][0m secrets.compare_digest
+
+[36m=== selectors ===[0m
+[32m[OK  ][0m import selectors
+[32m[OK  ][0m selectors.DefaultSelector
+[32m[OK  ][0m selectors.SelectSelector
+[32m[OK  ][0m selectors.EVENT_READ int
+[32m[OK  ][0m selectors.EVENT_WRITE int
+[32m[OK  ][0m DefaultSelector close
+
+[36m=== shelve ===[0m
+[32m[OK  ][0m import shelve
+[32m[OK  ][0m shelve.open callable
+[32m[OK  ][0m shelve.Shelf class
+[32m[OK  ][0m shelve write
+[32m[OK  ][0m shelve persist
+
+[36m=== shlex ===[0m
+[32m[OK  ][0m import shlex
+[32m[OK  ][0m shlex.split
+[32m[OK  ][0m shlex.quote
+[32m[OK  ][0m shlex.join
+[32m[OK  ][0m shlex token
+
+[36m=== shutil ===[0m
+[32m[OK  ][0m import shutil
+[32m[OK  ][0m shutil.copy callable
+[32m[OK  ][0m shutil.copytree callable
+[32m[OK  ][0m shutil.rmtree callable
+[32m[OK  ][0m shutil.which callable
+[32m[OK  ][0m shutil.disk_usage absent/callable
+[32m[OK  ][0m shutil.copy file exists
+[32m[OK  ][0m shutil.copy content
+
+[36m=== signal ===[0m
+[32m[OK  ][0m import signal
+[32m[OK  ][0m signal.SIGTERM int
+[32m[OK  ][0m signal.SIG_DFL
+[32m[OK  ][0m signal.SIG_IGN
+[32m[OK  ][0m signal.getsignal
+[32m[OK  ][0m signal.signal callable
+[32m[OK  ][0m signal.getsignal SIGTERM
+
+[36m=== site ===[0m
+[32m[OK  ][0m import site
+[32m[OK  ][0m site.ENABLE_USER_SITE
+[32m[OK  ][0m site.getsitepackages callable
+
+[36m=== socket ===[0m
+[32m[OK  ][0m import socket
+[32m[OK  ][0m socket.AF_INET int
+[32m[OK  ][0m socket.SOCK_STREAM int
+[32m[OK  ][0m socket.SOCK_DGRAM int
+[32m[OK  ][0m socket.SOL_SOCKET int
+[32m[OK  ][0m socket.IPPROTO_TCP int
+[32m[OK  ][0m socket.htons callable
+[32m[OK  ][0m socket.htonl callable
+[32m[OK  ][0m socket.inet_aton
+[32m[OK  ][0m socket.inet_ntoa
+[32m[OK  ][0m socket.getaddrinfo callable
+
+[36m=== ssl ===[0m
+[32m[OK  ][0m import ssl
+[32m[OK  ][0m ssl.SSLContext class
+[32m[OK  ][0m ssl.SSLError class
+[32m[OK  ][0m ssl.PROTOCOL_TLS_CLIENT
+[32m[OK  ][0m ssl.PROTOCOL_TLS_SERVER
+[32m[OK  ][0m ssl.CERT_NONE int
+[32m[OK  ][0m ssl.CERT_REQUIRED int
+[32m[OK  ][0m ssl.SSLContext created
+
+[36m=== stat ===[0m
+[32m[OK  ][0m import stat
+[32m[OK  ][0m stat.S_ISREG callable
+[32m[OK  ][0m stat.S_ISDIR callable
+[32m[OK  ][0m stat.S_ISDIR sd:/
+[32m[OK  ][0m stat.S_IMODE int
+[32m[OK  ][0m stat.S_IFMT int
+[32m[OK  ][0m stat.ST_MODE
+[32m[OK  ][0m stat.UF_IMMUTABLE
+
+[36m=== statistics ===[0m
+[32m[OK  ][0m import statistics
+[32m[OK  ][0m statistics.mean
+[32m[OK  ][0m statistics.median
+[32m[OK  ][0m statistics.mode
+  [DIAG] float_info.mant_dig=53  isqrt(10**20)=10000000000 (exp 10000000000)  isqrt(1<<110)=36028797018963968
+[32m[OK  ][0m statistics.stdev
+[32m[OK  ][0m statistics.variance
+[32m[OK  ][0m statistics.fmean
+[32m[OK  ][0m statistics.median_low
+[32m[OK  ][0m statistics.median_high
+[32m[OK  ][0m statistics.pstdev
+[32m[OK  ][0m statistics.harmonic_mean
+
+[36m=== string ===[0m
+[32m[OK  ][0m import string
+[32m[OK  ][0m string.ascii_letters
+[32m[OK  ][0m string.ascii_lowercase
+[32m[OK  ][0m string.ascii_uppercase
+[32m[OK  ][0m string.digits
+[32m[OK  ][0m string.hexdigits
+[32m[OK  ][0m string.punctuation
+[32m[OK  ][0m string.whitespace has space
+[32m[OK  ][0m string.Template subst
+[32m[OK  ][0m string.Formatter
+[32m[OK  ][0m string.capwords
+
+[36m=== stringprep ===[0m
+[32m[OK  ][0m import stringprep
+[32m[OK  ][0m stringprep.in_table_c11 callable
+[32m[OK  ][0m stringprep.in_table_d1 callable
+[32m[OK  ][0m stringprep space C1.1
+[32m[OK  ][0m stringprep letter not C1.1
+
+[36m=== struct ===[0m
+[32m[OK  ][0m import struct
+[32m[OK  ][0m struct.pack '>i'
+[32m[OK  ][0m struct.unpack '>i'
+[32m[OK  ][0m struct.pack '<f'
+[32m[OK  ][0m struct.pack two H
+[32m[OK  ][0m struct.calcsize '>iii'
+[32m[OK  ][0m struct.Struct pack
+[32m[OK  ][0m struct.Struct size
+[32m[OK  ][0m struct.iter_unpack
+
+[36m=== subprocess ===[0m
+[32m[OK  ][0m import subprocess
+[32m[OK  ][0m subprocess.PIPE
+[32m[OK  ][0m subprocess.STDOUT
+[32m[OK  ][0m subprocess.Popen
+[32m[OK  ][0m subprocess.run
+[32m[OK  ][0m subprocess.CompletedProcess
+
+[36m=== sys ===[0m
+[32m[OK  ][0m import sys
+[32m[OK  ][0m sys.version str
+[32m[OK  ][0m sys.prefix str
+[32m[OK  ][0m sys.path list
+[32m[OK  ][0m sys.modules dict
+[32m[OK  ][0m sys.maxsize int
+[32m[OK  ][0m sys.byteorder
+[32m[OK  ][0m sys.platform str
+[32m[OK  ][0m sys.version_info
+[32m[OK  ][0m sys.implementation
+[32m[OK  ][0m sys.float_info
+[32m[OK  ][0m sys.int_info
+[32m[OK  ][0m sys.stdin
+[32m[OK  ][0m sys.stdout
+[32m[OK  ][0m sys.stderr
+[32m[OK  ][0m sys.getrecursionlimit int
+[32m[OK  ][0m sys.getsizeof int
+[32m[OK  ][0m sys.intern str
+
+[36m=== sysconfig ===[0m
+[32m[OK  ][0m import sysconfig
+[32m[OK  ][0m sysconfig.get_python_version
+[32m[OK  ][0m sysconfig.get_paths callable
+[32m[OK  ][0m sysconfig.get_config_var
+
+[36m=== tarfile ===[0m
+[32m[OK  ][0m import tarfile
+[32m[OK  ][0m tarfile.open callable
+[32m[OK  ][0m tarfile.TarFile class
+[32m[OK  ][0m tarfile.TarInfo class
+[32m[OK  ][0m tarfile.ENCODING str
+[32m[OK  ][0m tarfile.is_tarfile callable
+[32m[OK  ][0m tarfile write+read
+
+[36m=== tempfile ===[0m
+[32m[OK  ][0m import tempfile
+[32m[OK  ][0m NamedTemporaryFile write
+[32m[OK  ][0m NamedTemporaryFile cleanup
+[32m[OK  ][0m TemporaryDirectory created
+[32m[OK  ][0m TemporaryDirectory cleaned
+[32m[OK  ][0m gettempdir str
+
+[36m=== textwrap ===[0m
+[32m[OK  ][0m import textwrap
+[32m[OK  ][0m textwrap.wrap list
+[32m[OK  ][0m textwrap.wrap line len
+[32m[OK  ][0m textwrap.fill str
+[32m[OK  ][0m textwrap.dedent
+[32m[OK  ][0m textwrap.indent
+[32m[OK  ][0m textwrap.shorten
+
+[36m=== threading ===[0m
+[32m[OK  ][0m import threading
+[32m[OK  ][0m threading.current_thread
+[32m[OK  ][0m threading.main_thread
+[32m[OK  ][0m threading.get_ident int
+[32m[OK  ][0m threading.active_count int
+[32m[OK  ][0m Event.is_set False
+[32m[OK  ][0m Event.set True
+[32m[OK  ][0m Event.clear False
+[32m[OK  ][0m Lock.acquire
+[32m[OK  ][0m Lock.locked
+[32m[OK  ][0m Lock.release
+[32m[OK  ][0m RLock reentrant ok
+[32m[OK  ][0m Thread ran
+[32m[OK  ][0m threading.local
+
+[36m=== timeit ===[0m
+[32m[OK  ][0m import timeit
+[32m[OK  ][0m timeit returns float
+[32m[OK  ][0m timeit > 0
+[32m[OK  ][0m timeit.repeat list
+[32m[OK  ][0m timeit.repeat len 3
+[32m[OK  ][0m timeit.Timer callable
+
+[36m=== token ===[0m
+[32m[OK  ][0m import token
+[32m[OK  ][0m token.NAME int
+[32m[OK  ][0m token.NUMBER int
+[32m[OK  ][0m token.STRING int
+[32m[OK  ][0m token.OP int
+[32m[OK  ][0m token.NEWLINE int
+[32m[OK  ][0m token.tok_name dict
+
+[36m=== tokenize ===[0m
+[32m[OK  ][0m import tokenize
+[32m[OK  ][0m tokenize non-empty
+[32m[OK  ][0m tokenize has NAME
+[32m[OK  ][0m tokenize has NUMBER
+[32m[OK  ][0m tokenize.detect_encoding callable
+
+[36m=== tomllib ===[0m
+[32m[OK  ][0m import tomllib
+[32m[OK  ][0m tomllib.loads table
+[32m[OK  ][0m tomllib.loads num
+[32m[OK  ][0m tomllib list
+[32m[OK  ][0m tomllib bool
+[32m[OK  ][0m tomllib float
+[32m[OK  ][0m tomllib.loads bad TOML raises TOMLDecodeError
+
+[36m=== traceback ===[0m
+[32m[OK  ][0m import traceback
+[32m[OK  ][0m traceback.format_exc str
+[32m[OK  ][0m traceback.format_exc content
+[32m[OK  ][0m traceback.format_exc msg
+[32m[OK  ][0m traceback.format_stack list
+[32m[OK  ][0m traceback.format_stack non-empty
+[32m[OK  ][0m traceback.print_exc
+
+[36m=== tracemalloc ===[0m
+[32m[OK  ][0m import tracemalloc
+[32m[OK  ][0m tracemalloc.start callable
+[32m[OK  ][0m tracemalloc.stop callable
+[32m[OK  ][0m tracemalloc.is_tracing bool
+[32m[OK  ][0m tracemalloc.is_tracing True
+[32m[OK  ][0m tracemalloc snapshot.statistics
+[32m[OK  ][0m tracemalloc.is_tracing False
+
+[36m=== types ===[0m
+[32m[OK  ][0m import types
+[32m[OK  ][0m types.FunctionType
+[32m[OK  ][0m types.LambdaType
+[32m[OK  ][0m types.MethodType
+[32m[OK  ][0m types.ModuleType
+[32m[OK  ][0m types.NoneType
+[32m[OK  ][0m types.GeneratorType
+[32m[OK  ][0m types.SimpleNamespace
+[32m[OK  ][0m SimpleNamespace attrs
+[32m[OK  ][0m types.MappingProxyType
+
+[36m=== typing ===[0m
+[32m[OK  ][0m import typing
+[32m[OK  ][0m typing.Any
+[32m[OK  ][0m typing.Optional
+[32m[OK  ][0m typing.Union
+[32m[OK  ][0m typing.List
+[32m[OK  ][0m typing.Dict
+[32m[OK  ][0m typing.Tuple
+[32m[OK  ][0m typing.Callable
+[32m[OK  ][0m typing.TypeVar
+[32m[OK  ][0m typing.Protocol
+[32m[OK  ][0m typing.TypedDict
+[32m[OK  ][0m typing.get_type_hints callable
+[32m[OK  ][0m TypeVar name
+[32m[OK  ][0m get_type_hints
+
+[36m=== unittest ===[0m
+[32m[OK  ][0m import unittest
+[32m[OK  ][0m unittest.TestCase class
+[32m[OK  ][0m unittest.TestSuite class
+[32m[OK  ][0m unittest.TestLoader class
+[32m[OK  ][0m unittest run
+[32m[OK  ][0m unittest no fail
+[32m[OK  ][0m unittest.mock importable
+
+[36m=== urllib ===[0m
+[32m[OK  ][0m import urllib
+[32m[OK  ][0m urllib.parse.quote
+[32m[OK  ][0m urllib.parse.unquote
+[32m[OK  ][0m urllib.parse.urlencode
+[32m[OK  ][0m urlparse scheme
+[32m[OK  ][0m urlparse netloc
+[32m[OK  ][0m urlparse path
+[32m[OK  ][0m urlparse query
+[32m[OK  ][0m urlparse fragment
+[32m[OK  ][0m urljoin
+[32m[OK  ][0m parse_qs
+[32m[OK  ][0m urllib.error.URLError
+[32m[OK  ][0m urllib.error.HTTPError
+[32m[OK  ][0m urllib.request.Request class
+[32m[OK  ][0m urllib.request.urlopen callable
+
+[36m=== uuid ===[0m
+[32m[OK  ][0m import uuid
+[32m[OK  ][0m uuid4 version
+[32m[OK  ][0m uuid4 str len
+[32m[OK  ][0m uuid4 unique
+[32m[OK  ][0m uuid3 version
+[32m[OK  ][0m uuid3 reproducible
+[32m[OK  ][0m uuid5 version
+[32m[OK  ][0m uuid1 version
+[32m[OK  ][0m UUID from str
+[32m[OK  ][0m UUID.bytes len
+[32m[OK  ][0m UUID.int int
+
+[36m=== warnings ===[0m
+[32m[OK  ][0m import warnings
+[32m[OK  ][0m warnings.warn callable
+[32m[OK  ][0m warnings.filterwarnings
+[32m[OK  ][0m warnings.catch_warnings
+[32m[OK  ][0m warnings caught
+[32m[OK  ][0m warnings message
+[32m[OK  ][0m warnings category
+
+[36m=== weakref ===[0m
+[32m[OK  ][0m import weakref
+[32m[OK  ][0m weakref.ref() not None
+[32m[OK  ][0m weakref.ref() is obj
+[32m[OK  ][0m weakref dead after del
+[32m[OK  ][0m WeakValueDict alive
+[32m[OK  ][0m WeakValueDict dead
+[32m[OK  ][0m WeakSet alive
+[32m[OK  ][0m WeakSet dead
+
+[36m=== xml ===[0m
+[32m[OK  ][0m import xml
+[32m[OK  ][0m xml.etree tag
+[32m[OK  ][0m xml.etree child
+[32m[OK  ][0m xml.etree text
+[32m[OK  ][0m xml.etree attr
+[32m[OK  ][0m xml.etree tostring
+[32m[OK  ][0m ElementTree type
+
+[36m=== zipfile ===[0m
+[32m[OK  ][0m import zipfile
+[32m[OK  ][0m zipfile namelist
+[32m[OK  ][0m zipfile read hello
+[32m[OK  ][0m zipfile read nested
+[32m[OK  ][0m zipfile.is_zipfile
+[32m[OK  ][0m zipfile.ZIP_DEFLATED int
+[32m[OK  ][0m zipfile.ZIP_STORED int
+
+[36m=== zipimport ===[0m
+[32m[OK  ][0m import zipimport
+[32m[OK  ][0m zipimport.zipimporter class
+[32m[OK  ][0m zipimport.ZipImportError
+[32m[OK  ][0m zipimport.ZipImportError is Exception
+
+[36m=== zoneinfo ===[0m
+[32m[OK  ][0m import zoneinfo
+[32m[OK  ][0m zoneinfo.ZoneInfo class
+[32m[OK  ][0m zoneinfo.available_timezones
+[32m[OK  ][0m zoneinfo.TZPATH list
+[32m[OK  ][0m zoneinfo timezones non-empty
+[32m[OK  ][0m zoneinfo UTC key
+
+[36m=== multiprocessing ===[0m
+[32m[OK  ][0m import multiprocessing
+[32m[OK  ][0m multiprocessing.Process class
+[32m[OK  ][0m multiprocessing.Queue callable
+[32m[OK  ][0m multiprocessing.Pool callable
+[32m[OK  ][0m multiprocessing.current_process callable
+[32m[OK  ][0m multiprocessing.cpu_count callable
+
+[36m=== concurrent.futures ===[0m
+[32m[OK  ][0m import concurrent.futures
+[32m[OK  ][0m ThreadPoolExecutor class
+[32m[OK  ][0m ProcessPoolExecutor class
+[32m[OK  ][0m Future class
+[32m[OK  ][0m as_completed callable
+[32m[OK  ][0m ThreadPoolExecutor results
+
+[36m=== re internals (_constants / _parser / _compiler) ===[0m
+[32m[OK  ][0m import re._constants
+[32m[OK  ][0m re._constants has content
+[32m[OK  ][0m import re._parser
+[32m[OK  ][0m re._parser has content
+[32m[OK  ][0m import re._compiler
+[32m[OK  ][0m re._compiler has content
+
+[36m=== antigravity ===[0m
+[32m[OK  ][0m import antigravity
+[32m[OK  ][0m antigravity has attributes
+
+[36m=== cProfile ===[0m
+[32m[OK  ][0m import cProfile
+[32m[OK  ][0m cProfile has attributes
+
+[36m=== cmd ===[0m
+[32m[OK  ][0m import cmd
+[32m[OK  ][0m cmd has attributes
+
+[36m=== code ===[0m
+[32m[OK  ][0m import code
+[32m[OK  ][0m code has attributes
+
+[36m=== codeop ===[0m
+[32m[OK  ][0m import codeop
+[32m[OK  ][0m codeop has attributes
+
+[36m=== compileall ===[0m
+[32m[OK  ][0m import compileall
+[32m[OK  ][0m compileall has attributes
+
+[36m=== ctypes ===[0m
+[32m[OK  ][0m import ctypes
+[32m[OK  ][0m ctypes has attributes
+
+[36m=== dbm ===[0m
+[32m[OK  ][0m import dbm
+[32m[OK  ][0m dbm has attributes
+
+[36m=== dis ===[0m
+[32m[OK  ][0m import dis
+[32m[OK  ][0m dis has attributes
+
+[36m=== doctest ===[0m
+[32m[OK  ][0m import doctest
+[32m[OK  ][0m doctest has attributes
+
+[36m=== encodings ===[0m
+[32m[OK  ][0m import encodings
+[32m[OK  ][0m encodings has attributes
+
+[36m=== ensurepip ===[0m
+[32m[OK  ][0m import ensurepip
+[32m[OK  ][0m ensurepip has attributes
+
+[36m=== filecmp ===[0m
+[32m[OK  ][0m import filecmp
+[32m[OK  ][0m filecmp has attributes
+
+[36m=== fileinput ===[0m
+[32m[OK  ][0m import fileinput
+[32m[OK  ][0m fileinput has attributes
+
+[36m=== ftplib ===[0m
+[32m[OK  ][0m import ftplib
+[32m[OK  ][0m ftplib has attributes
+
+[36m=== getpass ===[0m
+[32m[OK  ][0m import getpass
+[32m[OK  ][0m getpass has attributes
+
+[36m=== gettext ===[0m
+[32m[OK  ][0m import gettext
+[32m[OK  ][0m gettext has attributes
+
+[36m=== imaplib ===[0m
+[32m[OK  ][0m import imaplib
+[32m[OK  ][0m imaplib has attributes
+
+[36m=== inspect ===[0m
+[32m[OK  ][0m import inspect
+[32m[OK  ][0m inspect has attributes
+
+[36m=== mailbox ===[0m
+[32m[OK  ][0m import mailbox
+[32m[OK  ][0m mailbox has attributes
+
+[36m=== mimetypes ===[0m
+[32m[OK  ][0m import mimetypes
+[32m[OK  ][0m mimetypes has attributes
+
+[36m=== modulefinder ===[0m
+[32m[OK  ][0m import modulefinder
+[32m[OK  ][0m modulefinder has attributes
+
+[36m=== netrc ===[0m
+[32m[OK  ][0m import netrc
+[32m[OK  ][0m netrc has attributes
+
+[36m=== ntpath ===[0m
+[32m[OK  ][0m import ntpath
+[32m[OK  ][0m ntpath has attributes
+
+[36m=== opcode ===[0m
+[32m[OK  ][0m import opcode
+[32m[OK  ][0m opcode has attributes
+
+[36m=== pdb ===[0m
+[32m[OK  ][0m import pdb
+[32m[OK  ][0m pdb has attributes
+
+[36m=== pickletools ===[0m
+[32m[OK  ][0m import pickletools
+[32m[OK  ][0m pickletools has attributes
+
+[36m=== pkgutil ===[0m
+[32m[OK  ][0m import pkgutil
+[32m[OK  ][0m pkgutil has attributes
+
+[36m=== platform ===[0m
+[32m[OK  ][0m import platform
+[32m[OK  ][0m platform has attributes
+
+[36m=== poplib ===[0m
+[32m[OK  ][0m import poplib
+[32m[OK  ][0m poplib has attributes
+
+[36m=== posixpath ===[0m
+[32m[OK  ][0m import posixpath
+[32m[OK  ][0m posixpath has attributes
+
+[36m=== profile ===[0m
+[32m[OK  ][0m import profile
+[32m[OK  ][0m profile has attributes
+
+[36m=== pstats ===[0m
+[32m[OK  ][0m import pstats
+[32m[OK  ][0m pstats has attributes
+
+[36m=== py_compile ===[0m
+[32m[OK  ][0m import py_compile
+[32m[OK  ][0m py_compile has attributes
+
+[36m=== pyclbr ===[0m
+[32m[OK  ][0m import pyclbr
+[32m[OK  ][0m pyclbr has attributes
+
+[36m=== pydoc ===[0m
+[32m[OK  ][0m import pydoc
+[32m[OK  ][0m pydoc has attributes
+
+[36m=== pydoc_data ===[0m
+[32m[OK  ][0m import pydoc_data
+[32m[OK  ][0m pydoc_data has attributes
+
+[36m=== quopri ===[0m
+[32m[OK  ][0m import quopri
+[32m[OK  ][0m quopri has attributes
+
+[36m=== runpy ===[0m
+[32m[OK  ][0m import runpy
+[32m[OK  ][0m runpy has attributes
+
+[36m=== shlex ===[0m
+[32m[OK  ][0m import shlex
+[32m[OK  ][0m shlex has attributes
+
+[36m=== site ===[0m
+[32m[OK  ][0m import site
+[32m[OK  ][0m site has attributes
+
+[36m=== smtplib ===[0m
+[32m[OK  ][0m import smtplib
+[32m[OK  ][0m smtplib has attributes
+
+[36m=== socketserver ===[0m
+[32m[OK  ][0m import socketserver
+[32m[OK  ][0m socketserver has attributes
+
+[36m=== sqlite3 ===[0m
+[32m[OK  ][0m import sqlite3
+[32m[OK  ][0m sqlite3 has attributes
+
+[36m=== symtable ===[0m
+[32m[OK  ][0m import symtable
+[32m[OK  ][0m symtable has attributes
+
+[36m=== sysconfig ===[0m
+[32m[OK  ][0m import sysconfig
+[32m[OK  ][0m sysconfig has attributes
+
+[36m=== tabnanny ===[0m
+[32m[OK  ][0m import tabnanny
+[32m[OK  ][0m tabnanny has attributes
+
+[36m=== this ===[0m
+[32m[OK  ][0m import this
+[32m[OK  ][0m this has attributes
+
+[36m=== trace ===[0m
+[32m[OK  ][0m import trace
+[32m[OK  ][0m trace has attributes
+
+[36m=== venv ===[0m
+[32m[OK  ][0m import venv
+[32m[OK  ][0m venv has attributes
+
+[36m=== wave ===[0m
+[32m[OK  ][0m import wave
+[32m[OK  ][0m wave has attributes
+
+[36m=== wsgiref ===[0m
+[32m[OK  ][0m import wsgiref
+[32m[OK  ][0m wsgiref has attributes
+
+[36m=== xmlrpc ===[0m
+[32m[OK  ][0m import xmlrpc
+[32m[OK  ][0m xmlrpc has attributes
+
+[36m=== zipapp ===[0m
+[32m[OK  ][0m import zipapp
+[32m[OK  ][0m zipapp has attributes
+
+============================================================
+SUMMARY
+  [32mPassed : 1705[0m
+  [31mFailed : 12[0m
+  Total  : 1717
+
+[31mFAILURES (12):[0m
+  [31m  1. array('l').itemsize==4[0m
+       expected 4 got 8
+  [31m  2. array('L').itemsize==4[0m
+       expected 4 got 8
+  [31m  3. posix.listdir('sd:/') list[0m
+       FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+  [31m  4. posix.stat('sd:/')[0m
+       FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+  [31m  5. glob sd:/python/lib/*.py non-empty[0m
+       expected True got False
+  [31m  6. iglob returns items[0m
+       expected True got False
+  [31m  7. os.listdir('sd:/')[0m
+       FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+  [31m  8. os.path.exists sd:/[0m
+       expected True got False
+  [31m  9. os.path.isdir sd:/[0m
+       expected True got False
+  [31m 10. Path.is_dir sd:/python/lib[0m
+       expected True got False
+  [31m 11. Path.glob *.py[0m
+       expected True got False
+  [31m 12. Path.iterdir[0m
+       FileNotFoundError(2, 'Datei oder Verzeichnis nicht gefunden')
+============================================================
+Log: fail.log

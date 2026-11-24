@@ -1,0 +1,2 @@
+ModuleNotFoundError: No module named 'snake'
+  File /home/lew/Dokumente/wii-programme/wiitools-runner/tests/test.py line 2150 in snake

@@ -1,0 +1,7 @@
+numpy>=1.22
+pygame>=2.1
+Pillow>=9
+pycurl>=7.45
+
+[test]
+pytest>=7
